@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Harjoittelu.Models.LogInEvent>
+
+@{
+    ViewData["Title"] = "Logins";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.User_.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.New_status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User_.Name)
+            </td>
+            <td>
+                @*Hitto mitään amerikanpelleilyjä*@
+                @Html.DisplayFor(modelItem => item.Date)
+                @*@item.Date.ToString("G", System.Globalization.CultureInfo.CreateSpecificCulture("sv-se"))*@
+            </td>
+            <td>
+                <span class="@Harjoittelu.Models.Student.ColorClass(item.New_status)">
+                    &nbsp;@Html.DisplayFor(modelItem => item.New_status)&nbsp;
+                </span>
+                    
+                @*@if (item.New_status > 1)
+                    {
+                        <span class="bg-warning">&nbsp;@Html.DisplayFor(modelItem => item.New_status)&nbsp;</span>
+                    }
+                    else
+                    {
+                        <span>&nbsp;@Html.DisplayFor(modelItem => item.New_status)&nbsp;</span>
+                    }*@
+
+
+@*                @Html.DisplayFor(modelItem => item.New_status)*@
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Event_Id">Edit</a> |
+                    @*<a asp-action="Details" asp-route-id="@item.Event_Id">Details</a> |*@
+                <a asp-action="Delete" asp-route-id="@item.Event_Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

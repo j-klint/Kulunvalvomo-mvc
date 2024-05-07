@@ -1,0 +1,113 @@
+﻿@model Harjoittelu.Models.StudentViewModel
+
+@{
+    ViewData["Title"] = "Hours";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+    </dl>
+</div>
+<div>
+    @if ((Model.Status & (byte)Student.Status_t.LoggedIn) != 0)
+    {
+        <a asp-action="LogOut" asp-route-id="@Model.Id">Log out</a>
+    }
+    else
+    {
+        <a asp-action="LogIn" asp-route-id="@Model.Id">Log in</a>
+    }
+    | <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+<br />
+
+<div>
+    <h4>Added up hours</h4>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Hours">
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="From" class="control-label">from</label>
+                    <input asp-for="From" class="form-control" type="date" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="To" class="control-label">to</label>
+                    <input asp-for="To" class="form-control" type="date" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Calculate" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <br />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Hours)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Hours)
+        </dd>
+    </dl>
+    <p>(Accumulated hours are only "updated" at log out.)</p>
+</div>
+
+@if (Model.Events.Count > 0) {
+<div>
+    <h4>Log In Events</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Events[0].Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Events[0].New_status)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Events)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                        @*@item.Date.ToString("G", System.Globalization.CultureInfo.CreateSpecificCulture("sv-se"))*@
+                    </td>
+                    <td>
+                        <span class="@Harjoittelu.Models.Student.ColorClass(item.New_status)">
+                            &nbsp;@Html.DisplayFor(modelItem => item.New_status)&nbsp;
+                        </span>
+                        @*Html.DisplayFor(modelItem => item.New_status)*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}

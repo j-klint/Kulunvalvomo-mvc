@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*<div class="text-center" style="max-width:800px">*@
+<div style="max-width:700px">
+    <h1 class="display-4">Some Instructions</h1>
+    <p>The entries in the top menu correspond to the tables in the database.
+        Hopefully the names are self-explanatory.
+    </p>
+
+    <h3>Step by Step</h3>
+    <ol>
+        <li>Enter student(s) in the Students table.</li>
+        <li>Enter RFID tag(s) in the RFID Tags table. Unfortunately
+            finding out a tag's RFID code may involve some work.
+        </li>
+        <li>Assign one tag to each student in the RFID Tags view,
+            or at the same time as you're creating the tags.
+        </li>
+    </ol>
+
+    <h3>
+        Students
+    </h3>
+    <p>Start by entering the students' names and countries here.</p>
+    
+    <p>Here you can log students in and out, and
+        use the "details" view to view the accumulated time of an
+        individual student and the corresponding login events.
+    </p>
+
+    <p>Also the status variable is directly
+        available but shouldn't probably be manually edited as it is
+        supposed to keep pace with the newest status in the logins table.
+    </p>
+
+    <ul>
+        <li>
+            If the lowest bit (1 or 0) of status is set, it means the student is logged in.
+            In other words, if the number is odd.
+            All the other bits will be cleared by logging using the RFID reader program.</li>
+        <li>
+            If the second lowest bit it set (2 or 0), it means the student was automatically
+        logged out by the system last time (at the end of the day at 21:00).</li>
+        <li>
+            If the third lowest bit is set (4 or 0), it means that the last log in/out
+        event was made from (this) web interface.</li>
+    </ul>
+
+    <h3>RFID Tags</h3>
+    <p>Enter here the RFID code of a tag and assign it to a student.
+        Note that the RFID code and the serial number written on the tag are two different things.
+    </p>
+
+    <p>The serial number field isn't actually used for anything.
+        It's there only to help visually identify the tags.
+        You can enter any short piece of text you like.
+    </p>
+    
+    <p>Finding out the code can be a bit difficult. If you have an RFID
+        reader in virtual keyboard mode, you can just "type" it out.
+        I suppose this would be the recommended way provided there is a spare reader.
+    </p>
+
+    <p>If not, I've also written a little console app
+        for reading input from "serial" port, but using this involves copy-paste work.
+    </p>
+
+    <h3>Log ins</h3>
+    <p>This is just the raw log in data for all users. Probably shouldn't be manually edited.
+        This table is going to get very very long as time goes by.
+    </p>
+</div>

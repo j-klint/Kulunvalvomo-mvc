@@ -1,0 +1,67 @@
+﻿@model Harjoittelu.Models.StudentViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+    </dl>
+</div>
+<div>
+    @if ((Model.Status & (byte)Student.Status_t.LoggedIn) != 0)
+    {
+        <a asp-action="LogOut" asp-route-id="@Model.Id">Log out</a>
+    }
+    else
+    {
+        <a asp-action="LogIn" asp-route-id="@Model.Id">Log in</a>
+    }
+    | <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+<br />
+
+<div>
+    <h4>Add up hours</h4>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Hours">
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="From" class="control-label">from</label>
+                    <input asp-for="From" class="form-control" type="date" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="To" class="control-label">to</label>
+                    <input asp-for="To" class="form-control" type="date" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Calculate" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

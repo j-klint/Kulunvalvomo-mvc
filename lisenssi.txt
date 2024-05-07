@@ -1,0 +1,5 @@
+Kaikki tähän hakemistoon kirjoittamani olkoon public domainia, sikäli mikäli valtuuteni riittävät sen sellaiseksi julistamiseksi.
+
+Noissa Bootstrapeissa sun muissa on sitten omat lisenssinsä, jotka näyttäisivät olevan MIT-lisenssejä.
+
+T. Jaakko Klint, web äpin tekijä
