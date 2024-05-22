@@ -13,9 +13,11 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Rfid_Id" class="control-label"></label>
-                <input asp-for="Rfid_Id" class="form-control" />
-                <span asp-validation-for="Rfid_Id" class="text-danger"></span>
+                <label asp-for="StudentID" class="control-label"></label>
+                <select asp-for="StudentID" asp-items="Model.students" class="form-control">
+                    <option value=""></option>
+                </select>
+                <span asp-validation-for="StudentID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Serial" class="control-label"></label>
@@ -28,11 +30,9 @@
                 <span asp-validation-for="User_Id" class="text-danger"></span>
             </div>*@
             <div class="form-group">
-                <label asp-for="StudentID" class="control-label"></label>
-                <select asp-for="StudentID" asp-items="Model.students" class="form-control">
-                    <option value=""></option>
-                </select>
-                <span asp-validation-for="StudentID" class="text-danger"></span>
+                <label asp-for="Rfid_Id" class="control-label"></label>
+                <input asp-for="Rfid_Id" class="form-control" />
+                <span asp-validation-for="Rfid_Id" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
