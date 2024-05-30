@@ -242,6 +242,7 @@ namespace Harjoittelu.Controllers
             if ( ((Student.Status_t)student.Status & Student.Status_t.LoggedIn) == 0 )
             {
                 var newStatus = student.Status | (byte)(Student.Status_t.LoggedIn | Student.Status_t.LoggedByAdmin);
+                newStatus &= (byte)(~Student.Status_t.AutoLogOut);
                 await _context.Database.ExecuteSqlAsync($"EXEC Update_Status {id}, {newStatus};");
             }
 
@@ -264,6 +265,7 @@ namespace Harjoittelu.Controllers
             if ( ((Student.Status_t)student.Status & Student.Status_t.LoggedIn) != 0 )
             {
                 var newStatus = (student.Status | (byte)Student.Status_t.LoggedByAdmin) & (~(byte)Student.Status_t.LoggedIn);
+                newStatus &= (byte)(~Student.Status_t.AutoLogOut);
                 await _context.Database.ExecuteSqlAsync($"EXEC Update_Status {id}, {newStatus};");
             }
 
