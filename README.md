@@ -1,7 +1,15 @@
-## Nettisivukäyttöliittymä, jolla pääsee räpläämään kulunvalvontatietokantaa.
+## Nettisivukäyttöliittymä, jolla pääsee räpläämään kulunvalvontatietokantaa
 
-Namespacen ja tiedostojen nimet ovat ehkä vähän pöhköt, kun rupesin vain testailemaan juttuja, ja ne sitten toimivatkin.
+Pieni harjoitustekele, jonka tein osana
+[Nordin opintoja](https://utbnord.se/fin/koulutukset/koulutustyypit/ammatillinen-koulutus/130--pohjoismainen-sovelluskehittaja).
 
-Tarkoitettu helpottamaan tuo [toisen ohjelman](https://github.com/j-klint/Kulunvalvonta-console) tietokannan
-käyttöä, niin ettei tarvi kokonaista [tietokannanhallintaohjelmaa](https://en.wikipedia.org/wiki/SQL_Server_Management_Studio)
-pikkujuttujen tekemiseen.
+Tarkoitettu helpottamaan tuon
+[toisen tekeleen](https://github.com/j-klint/Kulunvalvonta-console)
+tietokannan käyttöä, niin ettei tarvi kokonaista
+[tietokannanhallintaohjelmaa](docs.microsoft.com/en-us/sql/ssms)
+pikkujuttujen tekemiseen. Ja muutenkin esittää asioita helpommin luettavassa
+muodossa.
+
+Tämä on ASP.NET Core MVC:llä tehty. Laiskaan tyyliin enimmäkseen Visuan Studion
+scaffoldeilla tämä on suurimmalta osin luotu. Pyrin lisäilemään kommentteja
+niihin paikkoihin, joissa on joitain omia keksintöjä.
