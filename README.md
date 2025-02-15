@@ -6,9 +6,9 @@ Pieni harjoitustekele, jonka tein osana
 Tarkoitettu helpottamaan tuon
 [toisen tekeleen](https://github.com/j-klint/Kulunvalvonta-console)
 tietokannan käyttöä, niin ettei tarvi kokonaista
-[tietokannanhallintaohjelmaa](docs.microsoft.com/en-us/sql/ssms)
-pikkujuttujen tekemiseen. Ja muutenkin esittää asioita helpommin luettavassa
-muodossa.
+[tietokannanhallintaohjelmaa](https://docs.microsoft.com/en-us/sql/ssms)
+asentaa pikkujuttujen tekemiseen. Ja muutenkin esittää asioita helpommin
+luettavassa muodossa.
 
 Tämä on ASP.NET Core MVC:llä tehty. Laiskaan tyyliin enimmäkseen Visuan Studion
 scaffoldeilla tämä on suurimmalta osin luotu. Pyrin lisäilemään kommentteja
